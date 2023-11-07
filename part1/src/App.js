@@ -1,28 +1,19 @@
 import "./App.css";
 
 function App() {
-  const name = <h1>Jesus</h1>;
-  const age = <h2>21</h2>;
-  const email = <h2>jesus@jesus.com</h2>;
+  const age = 15;
+  const isGreen = true;
+
   return (
     <div className="App">
-      <div>
-        <User name="jesus" age={23} email="jesus@jesus.com" />
-        <User name="david" age={23} email="david@david.com" />
-        <User name="laura" age={23} email="laura@laura.com" />
-      </div>
+      <h1 className="name">
+        {age >= 18 ? <h1>OVER AGE</h1> : <h1>Under AGE</h1>}
+        <h1 style={{ color: isGreen ? "green" : "red" }}>THIS HAS COLOR</h1>
+
+        {isGreen && <button>Button</button>}
+      </h1>
     </div>
   );
 }
-
-const User = (props) => {
-  return (
-    <div>
-      <h1>{props.name}</h1>
-      <h1>{props.age}</h1>
-      <h1>{props.email}</h1>
-    </div>
-  );
-};
 
 export default App;

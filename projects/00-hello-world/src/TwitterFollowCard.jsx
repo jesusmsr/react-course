@@ -1,9 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 
-export function TwitterFollowCard({children ,userName = 'unknown'}) {
+export function TwitterFollowCard({children ,userName = 'unknown', initialIsFollowing = false}) {
     // Hooks
-    const [isFollowing, setIsFollowing] = useState(false);
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
 
     return (
         <article className="tw-followCard">

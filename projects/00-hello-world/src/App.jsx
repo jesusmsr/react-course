@@ -11,7 +11,7 @@ export function App() {
             {/* Pasar un objeto como props. Mala práctica */}
             <TwitterFollowCard {...adriz}>Pictures For Iders</TwitterFollowCard>
 
-            <TwitterFollowCard userName="kikobeats">Kiko Beats</TwitterFollowCard>
+            <TwitterFollowCard userName="kikobeats" initialIsFollowing={true}>Kiko Beats</TwitterFollowCard>
             <TwitterFollowCard>Raul Maldonado</TwitterFollowCard>
             <TwitterFollowCard userName="alexelcapo">Alex El Capo</TwitterFollowCard>
         </div>

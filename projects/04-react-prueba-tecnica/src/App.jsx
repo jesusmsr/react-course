@@ -1,18 +1,12 @@
 import { useState, useEffect } from 'react';
-
-const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact';
+import { getRandomFact } from './services/facts';
 
 export function App() {
-  const [fact, setFact] = useState(null);
   const [url, setUrl] = useState(null);
+  const [fact, setFact] = useState(null);
 
   useEffect(() => {
-    fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then((res) => res.json())
-      .then((data) => {
-        const { fact } = data;
-        setFact(fact);
-      });
+    getRandomFact().then((fact) => setFact(fact));
   }, []);
 
   useEffect(() => {
@@ -28,11 +22,16 @@ export function App() {
       });
   }, [fact]);
 
+  const handleClick = () => {
+    getRandomFact().then((fact) => setFact(fact));
+  };
+
   return (
     <main
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
     >
       <h1>App de gatitos</h1>
+      <button onClick={handleClick}>Refrescar</button>
       <p>{fact}</p>
       {url && (
         <img
